@@ -25,7 +25,13 @@ const reducer = ( state, action ) =>
 
 const useGithub = ( username ) =>
 {
+    React.useDebugValue(`Fetching data for ${username}`);
     const [ state, dispatch ] = React.useReducer( reducer, initialState );
+    React.useDebugValue(
+        initialState.error
+            ? `There is an error fetching the data for ${username}`
+            : `No Error fetching the data for ${username}`
+    );
 
     React.useEffect( () =>
     {
@@ -43,7 +49,9 @@ const useGithub = ( username ) =>
                 dispatch( { type: 'FETCH_FAILURE', error } );
             }
         };
+
         fetchData();
+
     }, [ username ] );
 
     return state;

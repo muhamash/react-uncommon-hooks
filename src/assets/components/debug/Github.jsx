@@ -26,7 +26,8 @@ export default function GithubInfo ()
                     <p className="my-2 text-md bg-gray-300 border p-2 rounded-md">
                         { user?.bio }
                     </p>
-                    <p className="font-mono my-2 px-5 py-1 text-white rounded-sm shadow-lg bg-orange-400">Location: { user.location }</p>
+                    <p className="font-mono my-2 px-5 py-1 text-white rounded-sm shadow-md bg-orange-400 shadow-purple-200">Location: { user.location }</p>
+                    <p className="font-thin text-xl bg-black text-white p-3 my-2 rounded-md shadow-lg shadow-slate-400">Github Id: { user.html_url }</p>
                 </div>
             ) : (
                 <p>No user data</p>
