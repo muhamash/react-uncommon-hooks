@@ -1,12 +1,16 @@
 import './App.css'
 import GithubInfo from './assets/components/debug/Github'
+import FormId from './assets/components/FormId/FormId'
 
 function App() {
 
   return (
     <div>
       {/* hello */}
-      <GithubInfo/>
+      <GithubInfo />
+      <div>
+        <FormId/>
+      </div>
     </div>
   )
 }
