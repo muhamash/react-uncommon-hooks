@@ -8,10 +8,8 @@ const initialState = {
     error: null,
 };
 
-const reducer = ( state, action ) =>
-{
-    switch ( action.type )
-    {
+const reducer = (state, action) => {
+    switch (action.type) {
         case 'FETCH_INIT':
             return { ...state, loading: true, error: null };
         case 'FETCH_SUCCESS':
@@ -19,19 +17,21 @@ const reducer = ( state, action ) =>
         case 'FETCH_FAILURE':
             return { ...state, loading: false, error: action.error };
         default:
-            throw new Error();
+            return state;  // Do not throw an error, just return current state
     }
 };
 
 const useGithub = ( username ) =>
 {
-    React.useDebugValue(`Fetching data for ${username}`);
     const [ state, dispatch ] = React.useReducer( reducer, initialState );
+
+    React.useDebugValue( `Fetching data for ${username}` );
     React.useDebugValue(
-        initialState.error
+        state.error
             ? `There is an error fetching the data for ${username}`
             : `No Error fetching the data for ${username}`
     );
+    React.useDebugValue( state.user, ( user ) => user?.bio || "No Bio" );
 
     React.useEffect( () =>
     {
@@ -51,7 +51,6 @@ const useGithub = ( username ) =>
         };
 
         fetchData();
-
     }, [ username ] );
 
     return state;
