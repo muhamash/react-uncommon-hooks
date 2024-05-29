@@ -4,6 +4,7 @@ import GithubInfo from './assets/components/debug/Github'
 import FormId from './assets/components/FormId/FormId'
 import ParentChild from './assets/components/Imperative/ParentChild'
 import Boomer from './assets/components/insertion/Boomer'
+import LayoutTest from './assets/components/LayoutEffect/LayoutEffect'
 // console.log(data)
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
       {/* hello */}
       <GithubInfo />
       <div>
+        <div>
+        <LayoutTest/>
+      </div>
         <FormId />
         <Boomer />
         <ParentChild/>
@@ -20,6 +24,7 @@ function App() {
       {/* <div>
         <FindUser users={data}/>
       </div> */}
+      
     </div>
   )
 }
