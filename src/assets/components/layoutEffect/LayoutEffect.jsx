@@ -1,7 +1,13 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 
 const LayoutTest = () => {
-    const elementRef = useRef(null);
+    const elementRef = useRef( null );
+    
+    useEffect( () =>
+    {
+        console.log( 'useEffect' );
+    }, [] );
+
 
     useLayoutEffect(() => {
         console.log('useLayoutEffect');
@@ -15,10 +21,7 @@ const LayoutTest = () => {
         };
       }, []);
 
-      useEffect(() => {
-        console.log('useEffect');
-      }, []);
-
+      
 
     return (
         <div
